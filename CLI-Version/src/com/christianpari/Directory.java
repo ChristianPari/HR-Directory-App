@@ -1,23 +1,27 @@
 package com.christianpari;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class Directory {
-  private List<Contact> directory = new ArrayList<>();
+  private HashMap<Integer, Contact> directory = new HashMap<>();
 
-  public void addContact(Contact newContact) { directory.add(newContact); }
-  public void removeContact(Contact contact) { directory.remove(contact); }
-  public List<Contact> getDirectory() { return directory; }
-  private int getContactID(Contact contact) { return directory.indexOf(contact); }
-  public Contact getContact(Contact contact) { return directory.get(getContactID(contact)); }
+  public void addContact(Contact newContact) { directory.put(directory.size() + 1, newContact); }
+  public void removeContact(int contactID) { directory.remove(contactID); }
+  public Contact getContact(int contactID) { return directory.get(contactID); }
+  public HashMap<Integer, Contact> getDirectory() { return directory; }
 
   public void editContact(
-    Contact contact
+    int contactID
     , HashMap<String, String> data
   ) {
-    directory.get(getContactID(contact)).editContact(data);
+    directory.get(contactID).editContact(data);
   }
 
+  public void displayDirectory() {
+    String display = "";
+    for (int contactID : directory.keySet()) {
+      display += "Contact #" + contactID + "\n" + directory.get(contactID).getInfo();
+    }
+    System.out.println(display);
+  }
 }
