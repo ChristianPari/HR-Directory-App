@@ -18,10 +18,18 @@ public class Directory {
   }
 
   public void displayDirectory() {
-    String display = "";
-    for (int contactID : directory.keySet()) {
-      display += "Contact #" + contactID + "\n" + directory.get(contactID).getInfo();
+    String display = "\nDIRECTORY\n";
+
+    if (directory.size() == 0) {
+      display += "Empty...\n";
+      System.out.println(display);
+      return;
     }
+
+    for (int contactID : directory.keySet()) {
+      display += "Contact #" + contactID + "\n" + directory.get(contactID).getInfo() + "\n";
+    }
+
     System.out.println(display);
   }
 }
