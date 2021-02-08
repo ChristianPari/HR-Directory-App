@@ -32,4 +32,6 @@ public class Contact {
       }
     }
   }
+
+  public String getField(String field) { return fields.get(field); }
 }
