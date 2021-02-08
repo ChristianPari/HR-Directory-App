@@ -1,5 +1,8 @@
 package com.christianpari;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -20,6 +23,39 @@ public class Console {
       }
     }
   }
+
+  public static List<Integer> getListIntegers(
+    int min,
+    int max,
+    String prompt
+  ) {
+    List<Integer> intChoices = new ArrayList<>();
+
+    while (true) {
+      sc.nextLine();
+      System.out.println(prompt);
+      String choices = sc.nextLine().trim();
+      List<String> choicesList = Arrays.asList(choices.split("\\s+"));
+
+      for (String choice : choicesList) {
+        if (!choice.matches("[" + min + "-" + max + "]")) {
+          System.out.println("Please provide a valid choice input...");
+          intChoices.clear();
+          break;
+        }
+
+        int numericalChoice = Integer.parseInt(choice);
+        intChoices.add(numericalChoice);
+      }
+
+      if (intChoices.size() == choicesList.size()) {
+        break;
+      }
+    }
+
+    return intChoices;
+  }
+
 
   static public boolean getYesNo(String query) {
     while (true) {
