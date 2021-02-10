@@ -17,19 +17,18 @@ public class Directory {
     directory.get(contactID).editContact(data);
   }
 
-  public void displayDirectory() {
+  public String displayDirectory() {
     String display = "\nDIRECTORY\n";
 
     if (directory.size() == 0) {
       display += "Empty...\n";
-      System.out.println(display);
-      return;
+      return display;
     }
 
     for (int contactID : directory.keySet()) {
       display += "Contact #" + contactID + "\n" + directory.get(contactID).getInfo() + "\n";
     }
 
-    System.out.println(display);
+    return display;
   }
 }

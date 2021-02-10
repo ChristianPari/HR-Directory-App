@@ -102,4 +102,8 @@ public class User {
   }
 
   public Directory getDirectory() { return directory; }
+
+  public String displayUser() {
+    return "User: " + this.email + "\n" + getDirectory().displayDirectory();
+  }
 }
