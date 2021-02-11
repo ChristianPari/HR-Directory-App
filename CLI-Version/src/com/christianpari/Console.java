@@ -76,6 +76,29 @@ public class Console {
     return sc.nextLine();
   }
 
+  static public String getEmail(String query) {
+    while (true) {
+      String email = getString(query);
+      Pattern pattern = Pattern.compile("^[\\\\w!#$%&’*+/=?`{|}~^-]+(?:\\\\.[\\\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\\\.)" +
+        "+[a-zA-Z]{2,6}$");
+      Matcher matcher = pattern.matcher(email);
+      boolean valid = matcher.find();
+      if (valid) return email;
+      System.out.println("### VALID EMAIL NEEDED ###");
+    }
+  }
+
+  static public String getPassword(String query) {
+    while (true) {
+      String password = getString(query);
+      Pattern pattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,}$");
+      Matcher matcher = pattern.matcher(password);
+      boolean valid = matcher.find();
+      if (valid) return password;
+      System.out.println("### ENTER A VALID PASSWORD ###");
+    }
+  }
+
   static public String getPhoneNumber(String query) {
     while (true) {
       String phoneNumber = getString(query);
@@ -83,6 +106,7 @@ public class Console {
       Matcher matcher = pattern.matcher(phoneNumber);
       boolean valid = matcher.find();
       if (valid) return phoneNumber;
+      System.out.println("### VALID NUMBER NEEDED ###");
     }
   }
 
