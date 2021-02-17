@@ -4,13 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.UUID;
 
 @Entity
 @Table(name = "CONTACT_TABLE")
 public class Contact {
+
   @Id
-  @GeneratedValue
-  private int id;
+  private UUID id;
   private String name;
   private String phone;
   private String fax;
@@ -21,14 +22,13 @@ public class Contact {
   }
 
   public Contact(
-    int id
-    , String name
+    String name
     , String phone
     , String fax
     , String company
     , String address
   ) {
-    this.id = id;
+    id = UUID.randomUUID();
     this.name = name;
     this.phone = phone;
     this.fax = fax;
@@ -36,11 +36,11 @@ public class Contact {
     this.address = address;
   }
 
-  public int getId() {
+  public UUID getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

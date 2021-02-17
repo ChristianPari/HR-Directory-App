@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ContactService {
@@ -22,8 +23,8 @@ public class ContactService {
     return repo.findAll();
   }
 
-  public Contact getContactByID(int id) {
-    return repo.findById(id).orElse(null);
+  public Contact getContactByID(UUID id) {
+    return repo.findById(id);
   }
 
   public Contact getContactByName(String name) {
@@ -31,7 +32,7 @@ public class ContactService {
   }
 
 //  DELETE
-  public String deleteContact(int id) {
+  public String deleteContact(UUID id) {
     Contact contact = getContactByID(id);
     repo.delete(contact);
     return "Contact deleted: " + contact;
