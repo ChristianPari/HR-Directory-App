@@ -16,7 +16,7 @@ public class ContactController {
 
   @PostMapping("/addContact")
   public Contact addContact(@RequestBody Contact contact) {
-    contact.setId(UUID.randomUUID());
+    contact.setId(UUID.randomUUID().toString());
     return service.saveContact(contact);
   }
 
@@ -26,7 +26,7 @@ public class ContactController {
   }
 
   @GetMapping("/getContactByID/{id}")
-  public Contact getContactByID(@PathVariable UUID id) {
+  public Contact getContactByID(@PathVariable String id) {
     return service.getContactByID(id);
   }
 
@@ -37,7 +37,7 @@ public class ContactController {
   public Contact updateContact(@RequestBody Contact contact) { return service.updateContact(contact); }
 
   @DeleteMapping("/deleteContact/{id}")
-  public String deleteContact(@PathVariable UUID id) { return service.deleteContact(id); }
+  public String deleteContact(@PathVariable String id) { return service.deleteContact(id); }
 
 }
 

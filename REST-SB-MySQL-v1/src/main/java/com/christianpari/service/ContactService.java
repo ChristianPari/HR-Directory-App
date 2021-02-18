@@ -23,7 +23,7 @@ public class ContactService {
     return repo.findAll();
   }
 
-  public Contact getContactByID(UUID id) {
+  public Contact getContactByID(String id) {
     return repo.findById(id);
   }
 
@@ -32,7 +32,7 @@ public class ContactService {
   }
 
 //  DELETE
-  public String deleteContact(UUID id) {
+  public String deleteContact(String id) {
     Contact contact = getContactByID(id);
     repo.delete(contact);
     return "Contact deleted: " + contact;

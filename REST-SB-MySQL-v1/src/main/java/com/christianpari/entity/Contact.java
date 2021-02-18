@@ -11,7 +11,7 @@ import java.util.UUID;
 public class Contact {
 
   @Id
-  private UUID id;
+  private String id;
   private String name;
   private String phone;
   private String fax;
@@ -28,7 +28,7 @@ public class Contact {
     , String company
     , String address
   ) {
-    id = UUID.randomUUID();
+    id = UUID.randomUUID().toString();
     this.name = name;
     this.phone = phone;
     this.fax = fax;
@@ -36,11 +36,11 @@ public class Contact {
     this.address = address;
   }
 
-  public UUID getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(UUID id) {
+  public void setId(String id) {
     this.id = id;
   }
 
