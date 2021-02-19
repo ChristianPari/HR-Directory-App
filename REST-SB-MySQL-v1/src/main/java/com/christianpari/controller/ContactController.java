@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@RequestMapping("/api/v1")
 public class ContactController {
 
   @Autowired
@@ -16,7 +17,7 @@ public class ContactController {
 
   @PostMapping("/addContact")
   public Contact addContact(@RequestBody Contact contact) {
-    contact.setId(UUID.randomUUID().toString());
+    contact.id = UUID.randomUUID().toString();
     return service.saveContact(contact);
   }
 
@@ -40,14 +41,3 @@ public class ContactController {
   public String deleteContact(@PathVariable String id) { return service.deleteContact(id); }
 
 }
-
-
-
-
-
-
-
-
-
-
-

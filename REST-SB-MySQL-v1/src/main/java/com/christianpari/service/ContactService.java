@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class ContactService {
@@ -40,37 +39,13 @@ public class ContactService {
 
 //  PUT
   public Contact updateContact(Contact newContact) {
-    Contact contact = getContactByID(newContact.getId());
-    contact.setName(newContact.getName());
-    contact.setPhone(newContact.getPhone());
-    contact.setFax(newContact.getFax());
-    contact.setCompany(newContact.getCompany());
-    contact.setAddress(newContact.getAddress());
+    Contact contact = getContactByID(newContact.id);
+    contact.name = newContact.name;
+    contact.phone = newContact.phone;
+    contact.fax = newContact.fax;
+    contact.company = newContact.company;
+    contact.address = newContact.address;
     return repo.save(contact);
   }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
