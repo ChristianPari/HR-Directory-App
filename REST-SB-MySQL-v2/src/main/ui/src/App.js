@@ -1,11 +1,15 @@
 import React from 'react'
-import './App.css'
-import ContactsList from './components/ContactsList'
+import {BrowserRouter} from 'react-router-dom'
+import './css/App.css'
+
+import AppRouter from './router/AppRouter'
 
 function App() {
   return (
     <div className="App">
-      <ContactsList />
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
     </div>
   );
 }

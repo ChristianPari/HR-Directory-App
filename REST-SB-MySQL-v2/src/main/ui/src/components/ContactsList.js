@@ -14,7 +14,7 @@ export default function ContactsList(props) {
   return (
     <div className="ContactsListContainer">
       <h1 className="ListHeading" style={headingStyle}>Contacts</h1>
-
+      <button className='NewContactButton' onClick={addContact}>Add Contact</button>
       <div className="ContactTableConatiner" style={containerStyle}>
         <table className="ContactTable" style={tableStyle}>
           <thead className="ContactTableHead">
@@ -37,7 +37,10 @@ export default function ContactsList(props) {
                     <td>{contact.fax}</td>
                     <td>{contact.company}</td>
                     <td>{contact.address}</td>
-                    <td>REMOVE - EDIT</td> 
+                    <td>
+                      <button type="button">EDIT</button>
+                      <button type="button">DELETE</button>
+                    </td> 
                     {/* CHANGE ABOVE TO BUTTONS IN FUTURES */}
                   </tr>
               )
@@ -47,6 +50,10 @@ export default function ContactsList(props) {
       </div>
     </div>
   )
+}
+
+function addContact() {
+  window.location = window.location + 'add-contact';
 }
 
 const containerStyle = {
