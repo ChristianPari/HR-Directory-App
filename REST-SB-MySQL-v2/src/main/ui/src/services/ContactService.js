@@ -6,6 +6,14 @@ class ContactServie {
   getContacts() {
     return axios.get(CONTACT_API_BASE_URL + "getAllContacts");
   }
+
+  createContact(contact) {
+    return axios.post(CONTACT_API_BASE_URL + "addContact", contact);
+  }
+
+  deleteContact(contactID) {
+    return axios.delete(CONTACT_API_BASE_URL + "deleteContact/" + contactID);
+  }
 }
 
 export default new ContactServie()

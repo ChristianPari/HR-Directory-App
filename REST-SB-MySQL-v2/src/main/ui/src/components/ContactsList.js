@@ -31,7 +31,7 @@ export default function ContactsList(props) {
             {
               contacts.map(
                 contact =>
-                  <tr key={contact.id}>
+                  <tr id={contact.id} key={contact.id}>
                     <td>{contact.name}</td>
                     <td>{contact.phone}</td>
                     <td>{contact.fax}</td>
@@ -39,7 +39,7 @@ export default function ContactsList(props) {
                     <td>{contact.address}</td>
                     <td>
                       <button type="button">EDIT</button>
-                      <button type="button">DELETE</button>
+                      <button type="button" onClick={deleteContact}>DELETE</button>
                     </td> 
                     {/* CHANGE ABOVE TO BUTTONS IN FUTURES */}
                   </tr>
@@ -54,6 +54,11 @@ export default function ContactsList(props) {
 
 function addContact() {
   window.location = window.location + 'add-contact';
+}
+
+function deleteContact(event) {
+  let contactID = event.target.parentNode.parentNode.id;
+  ContactService.deleteContact(contactID);
 }
 
 const containerStyle = {
