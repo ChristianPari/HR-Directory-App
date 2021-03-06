@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AllContacts() {
+export default function NotFound() {
   return (
     <div>
-      ALL CONTACTS
+      NOT FOUND
     </div>
   )
 }
