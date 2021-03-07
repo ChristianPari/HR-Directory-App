@@ -23,11 +23,11 @@ public class ContactService {
   }
 
   public Contact getContactByID(String id) {
-    return repo.findById(id);
+    return repo.findContactById(id);
   }
 
   public Contact getContactByName(String name) {
-    return repo.findByName(name);
+    return repo.findContactByName(name);
   }
 
 //  DELETE
