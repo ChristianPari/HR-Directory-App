@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    password: 1031GOD0623!
+    password: ${env.MYSQL_PASS}
     url: jdbc:mysql://localhost:3306/hr_directory
     username: root
   jpa:
@@ -11,3 +11,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
     show-sql: true
+app:
+  jwtSecret: ${env.JWT_SECRET}
+  jwtExpirationMs: ${env.JWT_EXPIRE}
