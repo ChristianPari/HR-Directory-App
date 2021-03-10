@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -18,7 +17,6 @@ public class ContactController {
 
   @PostMapping("addContact")
   public Contact addContact(@RequestBody Contact contact) {
-    contact.id = UUID.randomUUID().toString();
     return service.saveContact(contact);
   }
 
@@ -28,7 +26,7 @@ public class ContactController {
   }
 
   @GetMapping("getContactByID/{id}")
-  public Contact getContactByID(@PathVariable String id) {
+  public Contact getContactByID(@PathVariable Long id) {
     return service.getContactByID(id);
   }
 
@@ -39,6 +37,6 @@ public class ContactController {
   public Contact updateContact(@RequestBody Contact contact) { return service.updateContact(contact); }
 
   @DeleteMapping("deleteContact/{id}")
-  public String deleteContact(@PathVariable String id) { return service.deleteContact(id); }
+  public String deleteContact(@PathVariable Long id) { return service.deleteContact(id); }
 
 }

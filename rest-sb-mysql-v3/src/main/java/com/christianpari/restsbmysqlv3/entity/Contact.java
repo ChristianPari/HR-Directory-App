@@ -1,17 +1,15 @@
 package com.christianpari.restsbmysqlv3.entity;
 
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import java.util.UUID;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "CONTACT_TABLE")
 public class Contact {
 
   @Id
-  public String id;
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  public Long id;
   public String name;
   public String phone;
   public String fax;
@@ -22,13 +20,14 @@ public class Contact {
   }
 
   public Contact(
-    String name
+    Long id
+    , String name
     , String phone
     , String fax
     , String company
     , String address
   ) {
-    id = UUID.randomUUID().toString();
+    this.id = id;
     this.name = name;
     this.phone = phone;
     this.fax = fax;

@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ContactRepository extends JpaRepository<Contact, String> {
+public interface ContactRepository extends JpaRepository<Contact, Long> {
   Contact findContactByName(String name);
-  Contact findContactById(String id);
+  Contact findContactById(Long id);
 }

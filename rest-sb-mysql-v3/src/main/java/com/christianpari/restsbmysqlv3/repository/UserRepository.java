@@ -1,10 +1,14 @@
 package com.christianpari.restsbmysqlv3.repository;
 
-import com.christianpari.restsbmysqlv3.entity.User;
+import com.christianpari.restsbmysqlv3.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepository extends JpaRepository<User, String> {
-  User findUserByEmail(String email);
-  User findUserById(String id);
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Long> {
+  Optional<User> findByUsername(String username);
+  Boolean existsByUsername(String username);
   Boolean existsByEmail(String email);
 }

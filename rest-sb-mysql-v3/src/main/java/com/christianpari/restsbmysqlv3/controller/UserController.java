@@ -1,6 +1,6 @@
 package com.christianpari.restsbmysqlv3.controller;
 
-import com.christianpari.restsbmysqlv3.entity.User;
+import com.christianpari.restsbmysqlv3.models.User;
 import com.christianpari.restsbmysqlv3.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
