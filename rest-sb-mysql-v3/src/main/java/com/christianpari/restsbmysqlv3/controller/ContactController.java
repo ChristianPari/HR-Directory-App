@@ -7,36 +7,36 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/contacts")
 public class ContactController {
 
   @Autowired
   private ContactService service;
 
-  @PostMapping("addContact")
+  @PostMapping("/addContact")
   public Contact addContact(@RequestBody Contact contact) {
     return service.saveContact(contact);
   }
 
-  @GetMapping("getAllContacts")
+  @GetMapping("/getAllContacts")
   public List<Contact> getAllContacts() {
     return service.getContacts();
   }
 
-  @GetMapping("getContactByID/{id}")
-  public Contact getContactByID(@PathVariable Long id) {
+  @GetMapping("/getContactByID")
+  public Contact getContactByID(@RequestParam("id") Long id) {
     return service.getContactByID(id);
   }
 
-  @GetMapping("getContactByName/{name}")
-  public Contact getContactByName(@PathVariable String name) { return service.getContactByName(name); }
+  @GetMapping("/getContactByName")
+  public Contact getContactByName(@RequestParam("name") String name) { return service.getContactByName(name); }
 
-  @PutMapping("updateContact")
+  @PutMapping("/updateContact")
   public Contact updateContact(@RequestBody Contact contact) { return service.updateContact(contact); }
 
-  @DeleteMapping("deleteContact/{id}")
-  public String deleteContact(@PathVariable Long id) { return service.deleteContact(id); }
+  @DeleteMapping("/deleteContact")
+  public String deleteContact(@RequestParam("id") Long id) { return service.deleteContact(id); }
 
 }
