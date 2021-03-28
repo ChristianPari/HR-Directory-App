@@ -7,10 +7,10 @@ import Heading from './Heading'
 
 export default function NavBar() {
   return (
-    <nav className='navbar navbar-expand navbar-dark bg-dark'>
+    <nav className='navbar navbar-expand navbar-dark bg-primary'>
+      <Heading />
       <ul className='navbar-nav justify-content-between w-100'>
         <Navigation />
-        <Heading />
         <User />
       </ul>
     </nav>
