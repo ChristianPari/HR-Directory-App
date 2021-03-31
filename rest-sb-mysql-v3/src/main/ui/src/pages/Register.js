@@ -63,18 +63,18 @@ const Register = (props) => {
   }
 
   const onChangePassword = (e) => {
-    const username = e.target.value;
-    setPassword(username);
+    const password = e.target.value;
+    setPassword(password);
   }
 
   const onChangeEmail = (e) => {
-    const username = e.target.value;
-    setEmail(username);
+    const email = e.target.value;
+    setEmail(email);
   }
 
   const onChangeName = (e) => {
-    const username = e.target.value;
-    setName(username);
+    const name = e.target.value;
+    setName(name);
   }
 
   const handleRegister = (e) => {
@@ -86,7 +86,7 @@ const Register = (props) => {
     form.current.validateAll();
 
     if (checkBtn.current.context._errors.length === 0) {
-      AuthService.register(username, email, password).then(
+      AuthService.register(name, username, email, password).then(
         (response) => {
           setMessage(response.data.message);
           setSuccessful(true);
